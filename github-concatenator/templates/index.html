@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Concatenador de Archivos de GitHub</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <!-- Fuente para estilo 'hacker' -->
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <h1>Concatenador de Archivos de GitHub</h1>
+        <button id="toggle-mode">Cambiar a Modo Oscuro</button>
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        <form method="post">
+            <label for="repo_url">Ingresa la URL del repositorio de GitHub:</label><br>
+            <input type="text" id="repo_url" name="repo_url" required placeholder="https://github.com/usuario/repositorio/tree/main/ruta"><br><br>
+            <label for="output_filename">Nombre del archivo de salida (opcional):</label><br>
+            <input type="text" id="output_filename" name="output_filename" placeholder="onefile.txt"><br><br>
+            <input type="submit" value="Procesar">
+        </form>
+        <!-- Espacio para anuncios de Google -->
+        <div class="ads">
+            <!-- Código de anuncios de Google aquí -->
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>

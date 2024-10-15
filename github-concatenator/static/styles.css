@@ -1,0 +1,92 @@
+
+/* Estilos generales */
+body {
+    font-family: 'Share Tech Mono', monospace;
+    margin: 0;
+    padding: 0;
+    background-color: #f0f0f0;
+    color: #333;
+    transition: background-color 0.5s, color 0.5s;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+form {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+}
+
+label {
+    font-weight: bold;
+}
+
+input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 15px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="submit"],
+button#toggle-mode {
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+    border: none;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    background-color: #28a745;
+    color: #fff;
+}
+
+button#toggle-mode {
+    background-color: #007bff;
+    color: #fff;
+    margin-bottom: 20px;
+}
+
+.ads {
+    margin-top: 20px;
+    text-align: center;
+}
+
+/* Modo Oscuro */
+body.dark-mode {
+    background-color: #000;
+    color: #0f0;
+}
+
+body.dark-mode form {
+    background-color: #000;
+    border: 1px solid #0f0;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode input[type="submit"],
+body.dark-mode button#toggle-mode {
+    background-color: #000;
+    color: #0f0;
+    border: 1px solid #0f0;
+}
+
+body.dark-mode a {
+    color: #0f0;
+}
+
+.error {
+    color: red;
+    font-weight: bold;
+}
