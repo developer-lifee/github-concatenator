@@ -1,5 +1,4 @@
 from flask import Flask, render_template, request, send_file
-import os
 import requests
 from urllib.parse import urlparse
 from io import BytesIO
