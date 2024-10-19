@@ -6,6 +6,8 @@ from io import BytesIO
 
 app = Flask(__name__)
 
+INVALID_EXTENSIONS = ["png", "jpg", "exe", "dmg", "webp", "gif", "bmp", "mp3", "mp4", "avi", "mov", "wav", "flac", "iso", "zip", "rar", "7z", "tar", "psd", "ai", "pdf"]
+
 def get_github_repo_contents(api_url):
     headers = {'User-Agent': 'GitHubConcatenatorApp'}
     response = requests.get(api_url, headers=headers)
@@ -29,8 +31,9 @@ def concatenate_files(file_data, content_list):
             headers = {'User-Agent': 'GitHubConcatenatorApp'}
             response = requests.get(item["download_url"], headers=headers)
             response.raise_for_status()
-            content_list.append(f"\nArchivo: {item['path']}\n")
-            content_list.append(response.text)
+            if not item['path'].split(".")[-1].lower() in INVALID_EXTENSIONS:
+                content_list.append(f"\nArchivo: {item['path']}\n")
+                content_list.append(response.text)
         elif item["type"] == "dir":
             subdir_data = get_github_repo_contents(item["url"])
             concatenate_files(subdir_data, content_list)
