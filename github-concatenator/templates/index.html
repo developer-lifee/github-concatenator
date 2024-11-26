@@ -4,7 +4,9 @@
     <meta charset="UTF-8">
     <title>Concatenador de Archivos de GitHub</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <!-- Fuente para estilo 'hacker' -->
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5597925435997242"
+     crossorigin="anonymous"></script>
+    <!-- 'hacker' -->
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -22,12 +24,31 @@
             <input type="submit" value="Procesar">
         </form>
         <!-- Espacio para anuncios de Google -->
-        <div class="ads">
-            <!-- Código de anuncios de Google aquí -->
-        </div>
+    <div class="ads">
+        <img id="ad-image" src="https://files.alerta.rcnradio.com/alerta_paisa/public/2021-09/daviplata_1_0.jpg?DizPtze8xZkPa2cpzXE_DUPtHu9.RgQK" alt="Daviplata">
+        <p id="phone-number">3107946794</p>
+        <button id="copy-button" onclick="copyToClipboard()">Copiar al portapapeles</button>
     </div>
+
+    <script>
+    function copyToClipboard() {
+        const text = document.getElementById('phone-number').innerText;
+        navigator.clipboard.writeText(text).then(() => {
+            const button = document.getElementById('copy-button');
+            button.classList.add('copied');
+            button.innerHTML = 'Copiado <span class="checkmark"></span>';
+            setTimeout(() => {
+                button.classList.remove('copied');
+                button.innerHTML = 'Copiar al portapapeles';
+            }, 2000);
+        }).catch(err => {
+            console.error('Error al copiar el texto: ', err);
+        });
+    }
+    </script>
 
     <!-- Scripts -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
+
 </body>
 </html>
