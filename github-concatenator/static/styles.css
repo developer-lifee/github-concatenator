@@ -170,3 +170,6 @@ body.dark-mode .download-button:hover {
     background-color: #0f0;
     color: #000;
 }
+.download-button i {
+    margin-right: 8px; /* Espacio entre el ícono y el texto */
+}
