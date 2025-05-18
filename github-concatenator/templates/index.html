@@ -6,7 +6,6 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
 <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5597925435997242"
      crossorigin="anonymous"></script>
-    <!-- 'hacker' -->
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -23,8 +22,23 @@
             <input type="text" id="output_filename" name="output_filename" placeholder="onefile.txt"><br><br>
             <input type="submit" value="Procesar">
         </form>
-        <!-- Espacio para anuncios de Google -->
-    <div class="ads">
+
+        <hr> {# Una línea horizontal para separar secciones #}
+
+        <h2>Descargar Aplicación de Escritorio</h2>
+        <div class="download-buttons">
+            <a href="{{ url_for('static', filename='executables/your_app_windows.exe') }}" download>
+                <button class="download-button">Descargar para Windows</button>
+            </a>
+            <a href="{{ url_for('static', filename='executables/your_app_linux') }}" download>
+                <button class="download-button">Descargar para Linux</button>
+            </a>
+            <a href="{{ url_for('static', filename='executables/your_app_mac.dmg') }}" download>
+                <button class="download-button">Descargar para Mac</button>
+            </a>
+        </div>
+
+        <div class="ads">
         <img id="ad-image" src="https://files.alerta.rcnradio.com/alerta_paisa/public/2021-09/daviplata_1_0.jpg?DizPtze8xZkPa2cpzXE_DUPtHu9.RgQK" alt="Daviplata">
         <p id="phone-number">3107946794</p>
         <button id="copy-button" onclick="copyToClipboard()">Copiar al portapapeles</button>
@@ -47,7 +61,6 @@
     }
     </script>
 
-    <!-- Scripts -->
     <script src="{{ url_for('static', filename='script.js') }}"></script>
 
 </body>

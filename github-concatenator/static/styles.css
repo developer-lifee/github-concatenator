@@ -134,3 +134,39 @@ body.dark-mode .ads img {
     color: red;
     font-weight: bold;
 }
+
+/* ... (estilos existentes) ... */
+
+.download-buttons {
+    text-align: center;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.download-button {
+    padding: 12px 25px;
+    font-size: 18px;
+    margin: 10px;
+    background-color: #007bff; /* Color azul, puedes ajustarlo */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.download-button:hover {
+    background-color: #0056b3; /* Un azul más oscuro al pasar el mouse */
+}
+
+/* Modo Oscuro para los nuevos elementos */
+body.dark-mode .download-button {
+    background-color: #000;
+    color: #0f0;
+    border: 1px solid #0f0;
+}
+
+body.dark-mode .download-button:hover {
+    background-color: #0f0;
+    color: #000;
+}
