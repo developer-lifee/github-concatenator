@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>Concatenador de Archivos de GitHub</title>
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 576 512'><path fill='%23007bff' d='M208 80H192c-17.7 0-32 14.3-32 32V384c0 17.7 14.3 32 32 32h16c17.7 0 32-14.3 32-32V112c0-17.7-14.3-32-32-32zm64 0c-17.7 0-32 14.3-32 32V384c0 17.7 14.3 32 32 32h16c17.7 0 32-14.3 32-32V112c0-17.7-14.3-32-32-32zm160 0c-17.7 0-32 14.3-32 32V384c0 17.7 14.3 32 32 32h16c17.7 0 32-14.3 32-32V112c0-17.7-14.3-32-32-32zM336 80c-17.7 0-32 14.3-32 32V384c0 17.7 14.3 32 32 32h16c17.7 0 32-14.3 32-32V112c0-17.7-14.3-32-32-32z'/></svg>" type="image/svg+xml">
     <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5597925435997242"
-     crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5597925435997242" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -24,28 +24,34 @@
             <input type="submit" value="Procesar">
         </form>
 
-        <hr> {# Una línea horizontal para separar secciones #}
+        <hr>
 
         <h2>Descargar Aplicación de Escritorio</h2>
         <div class="download-buttons">
-<a href="{{ url_for('static', filename='executables/your_app_windows.exe') }}" download>
-    <button class="download-button">
-        <i class="fab fa-windows"></i> Descargar para Windows
-    </button>
-</a>
-<a href="{{ url_for('static', filename='executables/your_app_linux') }}" download>
-    <button class="download-button">
-        <i class="fab fa-linux"></i> Descargar para Linux
-    </button>
-</a>
-<a href="{{ url_for('static', filename='executables/your_app_mac.dmg') }}" download>
-    <button class="download-button">
-        <i class="fab fa-apple"></i> Descargar para Mac
-    </button>
-</a>
+            <div class="os-download-option">
+                <a href="{{ url_for('static', filename='executables/your_app_windows.exe') }}" download>
+                    <i class="fab fa-windows os-icon"></i>
+                    <button class="download-button">Descargar para Windows</button>
+                </a>
+            </div>
+            <div class="os-download-option">
+                <a href="{{ url_for('static', filename='executables/your_app_linux') }}" download>
+                    <i class="fab fa-linux os-icon"></i>
+                    <button class="download-button">Descargar para Linux</button>
+                </a>
+            </div>
+            <div class="os-download-option">
+                <a href="{{ url_for('static', filename='executables/your_app_mac.dmg') }}" download>
+                    <i class="fab fa-apple os-icon"></i>
+                    <button class="download-button">Descargar para Mac</button>
+                </a>
+            </div>
         </div>
 
-        <div class="ads">
+        </div> 
+
+    <div class="donation-corner">
+        <p>¿Te gusta la aplicación? ¡Considera una donación!</p>
         <img id="ad-image" src="https://files.alerta.rcnradio.com/alerta_paisa/public/2021-09/daviplata_1_0.jpg?DizPtze8xZkPa2cpzXE_DUPtHu9.RgQK" alt="Daviplata">
         <p id="phone-number">3107946794</p>
         <button id="copy-button" onclick="copyToClipboard()">Copiar al portapapeles</button>
