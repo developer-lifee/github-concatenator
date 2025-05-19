@@ -1,3 +1,5 @@
+/* styles.css */
+
 /* Estilos generales */
 body {
     font-family: 'Share Tech Mono', monospace;
@@ -6,9 +8,7 @@ body {
     background-color: #f0f0f0;
     color: #333;
     transition: background-color 0.5s, color 0.5s;
-    /* Necesario para posicionar el div de donaciones */
-    position: relative;
-    min-height: 100vh; /* Asegura que el body tenga al menos la altura de la ventana */
+    min-height: 100vh;
 }
 
 .container {
@@ -60,43 +60,64 @@ button#toggle-mode {
     margin-bottom: 20px;
 }
 
-/* Antiguos estilos .ads - ya no serán usados para la donación principal */
-/* .ads {
-    margin-top: 20px;
+.error {
+    color: red;
+    font-weight: bold;
+}
+
+/* Descargas OS */
+.download-buttons {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    margin-top: 30px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.os-download-option {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     text-align: center;
+    text-decoration: none;
+    color: inherit;
 }
-.ads img {
-    width: 150px;
-    height: auto;
+
+.os-download-option a {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
-.ads button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-    border: none;
-    border-radius: 3px;
+
+.os-icon {
+    font-size: 70px;
+    color: #007bff;
+    transition: color 0.3s ease;
+}
+
+.os-download-option a:hover .os-icon {
+    color: #0056b3;
+}
+
+.download-button {
+    padding: 12px 25px;
+    font-size: 18px;
     background-color: #007bff;
-    color: #fff;
-    position: relative;
-    transition: background-color 0.5s, color 0.5s;
-} */
-
-.ads button .checkmark { /* Estos estilos aún son válidos para el botón de copiar */
-    display: none;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    font-size: 20px;
-    color: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 200px;
 }
 
-.ads button.copied .checkmark {
-    display: inline;
-}
-
-.ads button.copied {
-    background-color: #28a745;
+.download-button:hover {
+    background-color: #0056b3;
 }
 
 /* Modo Oscuro */
@@ -122,84 +143,12 @@ body.dark-mode a {
     color: #0f0;
 }
 
-/* Nuevos estilos para el botón de copiar en modo oscuro */
-body.dark-mode .donation-corner button {
-    background-color: #000;
-    color: #0f0;
-    border: 1px solid #0f0;
-}
-
-body.dark-mode .donation-corner img {
-    filter: invert(1); /* Invertir colores de la imagen en modo oscuro */
-}
-
-.error {
-    color: red;
-    font-weight: bold;
-}
-
-/* Estilos para los botones de descarga con logos grandes */
-.download-buttons {
-    display: flex; /* Usa flexbox para alinear los elementos horizontalmente */
-    justify-content: center; /* Centra los elementos */
-    align-items: flex-end; /* Alinea los elementos al final (botones abajo de los íconos) */
-    margin-top: 30px;
-    margin-bottom: 30px;
-    flex-wrap: wrap; /* Permite que los elementos se envuelvan en pantallas pequeñas */
-    gap: 20px; /* Espacio entre las opciones de descarga */
-}
-
-.os-download-option {
-    display: flex;
-    flex-direction: column; /* Coloca el ícono y el botón en columna */
-    align-items: center; /* Centra el contenido en cada columna */
-    text-align: center;
-    text-decoration: none; /* Quita el subrayado del enlace */
-    color: inherit; /* Hereda el color del texto */
-}
-
-.os-download-option a { /* Estilos para el enlace que envuelve el icono y el botón */
-    text-decoration: none; /* Elimina el subrayado */
-    color: inherit; /* Mantiene el color del texto normal */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 10px; /* Espacio entre el icono y el botón */
-}
-
-.os-icon {
-    font-size: 70px; /* ¡Logos grandes! */
-    color: #007bff; /* Color del ícono, puedes ajustar */
-    transition: color 0.3s ease;
-}
-
-.os-download-option a:hover .os-icon {
-    color: #0056b3; /* Color al pasar el mouse */
-}
-
-.download-button {
-    padding: 12px 25px;
-    font-size: 18px;
-    background-color: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-    width: 200px; /* Ancho fijo para los botones, ajusta si es necesario */
-}
-
-.download-button:hover {
-    background-color: #0056b3;
-}
-
-/* Modo Oscuro para los nuevos elementos */
 body.dark-mode .os-icon {
-    color: #0f0; /* Color del icono en modo oscuro */
+    color: #0f0;
 }
 
 body.dark-mode .os-download-option a:hover .os-icon {
-    color: #00ff00; /* Verde brillante al pasar el mouse en modo oscuro */
+    color: #00ff00;
 }
 
 body.dark-mode .download-button {
@@ -213,39 +162,40 @@ body.dark-mode .download-button:hover {
     color: #000;
 }
 
-/* ESTILOS PARA LA SECCIÓN DE DONACIONES EN LA ESQUINA */
+/* SECCIÓN DE DONACIONES */
+/* Posicionada fija a la izquierda, fuera de la funcionalidad principal */
 .donation-corner {
-    position: absolute; /* Posicionamiento absoluto respecto al body */
-    bottom: 20px; /* 20px desde abajo */
-    right: 20px; /* 20px desde la derecha */
+    position: fixed;
+    bottom: 20px;
+    left: 20px;
     background-color: #fff;
     padding: 15px;
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra suave */
-    max-width: 250px; /* Ancho máximo para que no sea muy grande */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    max-width: 250px;
     text-align: center;
-    font-size: 0.9em; /* Texto un poco más pequeño */
-    z-index: 1000; /* Asegura que esté por encima de otros elementos */
-    display: flex; /* Usa flexbox para organizar el contenido */
-    flex-direction: column; /* Contenido en columna */
-    align-items: center; /* Centra los ítems */
-    gap: 10px; /* Espacio entre los elementos internos */
+    font-size: 0.9em;
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
 }
 
 .donation-corner p {
-    margin: 0; /* Elimina márgenes por defecto de los párrafos */
+    margin: 0;
 }
 
 .donation-corner img {
-    width: 100px; /* Tamaño más pequeño para la imagen de donación */
+    width: 60px;
     height: auto;
-    border-radius: 5px; /* Bordes ligeramente redondeados para la imagen */
+    border-radius: 5px;
 }
 
 .donation-corner button {
     padding: 8px 15px;
     font-size: 14px;
-    background-color: #28a745; /* Color verde para el botón de donación */
+    background-color: #28a745;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -257,20 +207,24 @@ body.dark-mode .download-button:hover {
     background-color: #218838;
 }
 
-/* Modo oscuro para la sección de donaciones */
+/* Modo oscuro para la donación */
 body.dark-mode .donation-corner {
-    background-color: #1a1a1a; /* Fondo más oscuro */
-    color: #eee; /* Texto más claro */
-    border: 1px solid #0f0; /* Borde verde para destacar */
-    box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3); /* Sombra verde */
+    background-color: #1a1a1a;
+    color: #eee;
+    border: 1px solid #0f0;
+    box-shadow: 0 4px 12px rgba(0, 255, 0, 0.3);
+}
+
+body.dark-mode .donation-corner img {
+    filter: invert(1);
 }
 
 body.dark-mode .donation-corner button {
-    background-color: #0f0; /* Botón verde brillante */
+    background-color: #0f0;
     color: #000;
     border: 1px solid #0f0;
 }
 
 body.dark-mode .donation-corner button:hover {
-    background-color: #0c0; /* Verde más oscuro al pasar el mouse */
+    background-color: #0c0;
 }
